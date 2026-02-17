@@ -1,0 +1,14 @@
+<mat-list>   
+    <mat-list-item *ngFor="let task of tasks">     
+        <div class="flex flex-col w-full">       
+            <span [class.line-through]="task.completed">{{ task.title }}</span>       
+            <small>{{ task.description }}</small>     
+        </div>     
+        <button mat-icon-button color="primary" [routerLink]="['/edit-task', task.id]">      
+            <mat-icon>edit</mat-icon>     
+        </button>     <button mat-icon-button color="warn" (click)="deleteTask(task.id!)">       
+            <mat-icon>delete</mat-icon>     
+        </button>   
+    </mat-list-item> 
+</mat-list> 
+<button mat-fab color="accent" routerLink="/add-task" class="add-btn">+</button>

@@ -1,0 +1,16 @@
+<form [formGroup]="form" (ngSubmit)="saveTask()">   
+    <mat-form-field class="w-full">     
+        <mat-label>Title</mat-label>     
+        <input matInput formControlName="title" required>    
+        <mat-error *ngIf="form.get('title')?.invalid">Title is required</mat-error>   
+    </mat-form-field>     
+    <mat-form-field class="w-full">     
+        <mat-label>Description</mat-label> 
+        <textarea matInput formControlName="description"></textarea>   
+    </mat-form-field>     
+    <mat-checkbox formControlName="completed">Completed</mat-checkbox>     
+    <button mat-raised-button color="primary" type="submit">     
+        {{ editing ? 'Update' : 'Add' }} Task   
+    </button>   
+    <button mat-button color="accent" routerLink="/">Cancel</button> 
+</form>
