@@ -86,8 +86,6 @@ Once the missing standalone flag was added and the id handling was corrected, th
 
 ---
 
-If you want, I can also produce a second document that explains the architecture in a more tutorial‑style format, or one that focuses on best practices for scaling this into a real backend.
-
 
 ## Development server
 
@@ -98,6 +96,25 @@ ng serve
 ```
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+
+Install Additional Dependencies For HTTP and forms, Angular already includes everything you need. But for a real backend, you have options: For practice/mock API: Use JSON Server to quickly spin up a fake REST API. 
+
+```bash
+npm install -g json-server
+```
+
+Create a db.json file in your project root: 
+
+{   
+  "tasks": [],   
+  "users": [] 
+} 
+
+Start the server: 
+
+```bash
+json-server --watch db.json
+```
 
 ## Code scaffolding
 
