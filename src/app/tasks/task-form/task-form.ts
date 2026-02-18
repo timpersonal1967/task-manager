@@ -58,8 +58,14 @@ export class TaskFormComponent implements OnInit {  
     }     
     
     saveTask() {     
-      if (this.form.invalid) return;    
-      const task: Task = { ...this.form.value, id: this.taskId };       
+      if (this.form.invalid) return; 
+         
+      const task: Task = this.editing
+  ? { ...this.form.value, id: this.taskId }
+  : { ...this.form.value };
+
+
+            
       const save = this.editing       
                    ? this.taskService.updateTask(task)       
                    : this.taskService.addTask(task);       
