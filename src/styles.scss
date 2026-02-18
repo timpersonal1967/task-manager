@@ -36,3 +36,59 @@ body {
   height: 100%;
 }
 /* You can add global styles to this file, and also import other style files */
+
+
+h1 {
+  font: var(--mat-sys-headline-large);
+  color: blueviolet;
+}
+
+.page-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+
+.task-list-container {
+  position: relative;
+}
+
+.task-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+mat-list-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.add-btn {
+  position: fixed;
+  bottom: 2rem;
+  width: 200px !important;
+}
+
+
+:host {
+  display: block;
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+mat-list-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  margin-bottom: 40px;
+  
+}
+
+mat-list-item {
+  overflow: visible !important;
+}
