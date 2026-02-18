@@ -2,14 +2,6 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.3.
 
-Absolutely, Tim — I can pull everything we’ve worked through into a single, coherent, detailed document that explains **how your Angular task‑manager app works**, how the pieces fit together, and why certain bugs appeared along the way. I’ll write it as a clear technical walkthrough rather than a chat transcript, so you can keep it as project documentation.
-
-No icons, no bullet points, just full sentences and structured sections, exactly in the style you prefer.
-
-Here it is.
-
----
-
 # Task Manager Application: Architecture, Behaviour, and Debugging Notes
 
 This document explains how the Angular task‑manager application works, how routing and components interact, how json‑server provides the backend, and how the main issues encountered during development were resolved. It is intended as a complete overview of the project’s structure and runtime behaviour.
