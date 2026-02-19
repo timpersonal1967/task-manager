@@ -37,58 +37,282 @@ body {
 }
 /* You can add global styles to this file, and also import other style files */
 
-
-h1 {
-  font: var(--mat-sys-headline-large);
-  color: blueviolet;
+/* Layout */
+.app-header {
+  background: #1e1e1e;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.page-container {
-  max-width: 800px;
-  margin: 0 auto;
+.top-nav a {
+  margin-left: 1rem;
+  color: white;
+  text-decoration: none;
+}
+
+.layout {
+  display: flex;
+  min-height: calc(100vh - 140px);
+}
+
+.sidebar {
+  width: 220px;
+  background: #f4f4f4;
   padding: 1rem;
 }
 
-
-.task-list-container {
-  position: relative;
+.sidebar nav a {
+  display: block;
+  padding: 0.5rem 0;
+  color: #333;
+  text-decoration: none;
 }
 
-.task-content {
-  display: flex;
-  flex-direction: column;
+.content {
   flex: 1;
+  padding: 2rem;
 }
 
-mat-list-item {
+.app-footer {
+  background: #1e1e1e;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Page container */
+.page {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Task list */
+.task-card {
+  background: white;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 1rem;
+  border: 1px solid #ddd;
+}
+
+.task-info h3 {
+  margin: 0;
+}
+
+.task-info h3.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.task-actions .btn {
+  margin-left: 0.5rem;
+}
+
+/* Buttons */
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn.primary {
+  background: #0078d4;
+  color: white;
+}
+
+.btn.edit {
+  background: #ffc107;
+}
+
+.btn.delete {
+  background: #dc3545;
+  color: white;
 }
 
 .add-btn {
-  position: fixed;
-  bottom: 2rem;
-  width: 200px !important;
+  margin-top: 1rem;
 }
 
-
-:host {
-  display: block;
-  max-width: 600px;
-  margin: 2rem auto;
-  padding: 1rem;
-}
-
-mat-list-item {
+/* Form */
+.task-form form {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 1rem;
-  padding: 0.75rem 0;
-  margin-bottom: 40px;
-  
 }
 
-mat-list-item {
-  overflow: visible !important;
+.task-form input,
+.task-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Base button styling */
+.btn {
+  position: relative;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: 
+    background-color 0.35s ease,
+    color 0.35s ease,
+    transform 0.25s ease;
+  overflow: hidden;
+}
+
+/* Soft translucent hover */
+.btn:hover {
+  background-color: rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Slow fade-in overlay */
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.15);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.btn:hover::after {
+  opacity: 1;
+}
+
+/* Button variants */
+.btn.primary {
+  background: #0078d4;
+  color: white;
+}
+
+.btn.primary:hover {
+  background: #0a84e6;
+}
+
+.btn.edit {
+  background: #ffc107;
+}
+
+.btn.delete {
+  background: #dc3545;
+  color: white;
+}
+
+/* Soft scale effect on click */
+.btn:active {
+  transform: scale(0.96);
+}
+
+/* Sidebar links */
+.sidebar nav a {
+  display: block;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.25rem;
+  color: #333;
+  text-decoration: none;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.4s ease;
+}
+
+/* Translucent hover overlay */
+.sidebar nav a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #dc3545;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* Hover effect */
+.sidebar nav a:hover::before {
+  opacity: 0.15;
+}
+
+.sidebar nav a:hover {
+  color: #dc3545;
+}
+
+/* Active link indicator */
+.sidebar nav a.active {
+  color: #dc3545;
+  font-weight: 600;
+}
+
+.sidebar nav a.active::before {
+  opacity: 0.25;
+}
+
+/* Top navigation container */
+.top-nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.top-nav a {
+  position: relative;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.25rem 0;
+  transition: color 0.4s ease;
+}
+
+/* Sliding underline */
+.top-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #dc3545;
+  transition: width 0.4s ease;
+}
+
+/* Hover effect */
+.top-nav a:hover {
+  color: #dc3545;
+}
+
+.top-nav a:hover::after {
+  width: 100%;
+}
+
+/* Soft glow on hover */
+.top-nav a:hover {
+  text-shadow: 0 0 8px rgba(220, 53, 69, 0.6);
+}
+
+/* Active link styling */
+.top-nav a.active {
+  color: #dc3545;
+  font-weight: 600;
+}
+
+.top-nav a.active::after {
+  width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
 }

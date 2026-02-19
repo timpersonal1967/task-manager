@@ -1,24 +1,18 @@
-<h1>Task List</h1>
-<br/>
-<br/>
-<div class="task-list-container">
+<div class="task-list page">
+    
+  <h2>Your Tasks</h2>
 
+  <div class="task-card" *ngFor="let task of tasks">
+    <div class="task-info">
+      <h3 [class.completed]="task.completed">{{ task.title }}</h3>
+      <p>{{ task.description }}</p>
+    </div>
 
-    <mat-list>   
-        <mat-list-item *ngFor="let task of tasks">     
-            <div class="flex flex-col w-full">       
-                <span [class.line-through]="task.completed">{{ task.title }}</span>       
-                <small>{{ task.description }}</small>     
-            </div>     
-            <button mat-icon-button color="primary" [routerLink]="['/edit-task', task.id]">      
-                <mat-icon>edit</mat-icon>     
-            </button>     <button mat-icon-button color="warn" (click)="deleteTask(task.id!)">       
-                <mat-icon>delete</mat-icon>     
-            </button>   
-        </mat-list-item> 
-    </mat-list> 
-    <br/>
-    <br/>
-    <button mat-fab color="accent" routerLink="/add-task" class="add-btn">Add&nbsp;Task</button>
+    <div class="task-actions">
+      <button class="btn edit" [routerLink]="['/edit-task', task.id]">Edit</button>
+      <button class="btn delete" (click)="deleteTask(task.id!)">Delete</button>
+    </div>
+  </div>
 
+  <button class="btn primary add-btn" routerLink="/add-task">Add Task</button>
 </div>

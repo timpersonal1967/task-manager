@@ -1,6 +1,28 @@
 
-<div class="page-container">
+<header class="app-header">
+  <h1>Task Manager</h1>
+  <nav class="top-nav">
+    <a routerLink="/">Tasks</a>
+    <a routerLink="/about">About</a>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <nav>
+      <a routerLink="/">All Tasks</a>
+      <a routerLink="/add-task">Add Task</a>
+      <a routerLink="/about">About</a>
+    </nav>
+  </aside>
+
+  <main class="content">
     <router-outlet></router-outlet>
+  </main>
 </div>
+
+<footer class="app-footer">
+  <p>© 2026 Task Manager</p>
+</footer>
 
 
